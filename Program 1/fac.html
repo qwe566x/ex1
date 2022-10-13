@@ -1,0 +1,58 @@
+<html>
+<body>
+    <div id="root"></div>
+    <script>
+
+class Student {
+  static createStudent(firstName, lastName, age, college = 'RVCE') {
+    const student = {
+      firstName: firstName,
+      lastName: lastName,
+      age: age,
+      college: college,
+      printStudentInformation: function () {
+        const studentInfo = document.createElement('div');
+        const studentName = document.createElement('div');
+        const studentAge = document.createElement('div');
+        const studentCollege = document.createElement('div');
+        const divider = document.createElement('hr');
+
+        const title = document.createElement('h3');
+        title.innerHTML = 'Using class syntax';
+
+        studentInfo.setAttribute('id', 'studentInfo');
+
+        studentName.innerHTML = `Student Name: ${this.firstName} ${this.lastName}`;
+        studentAge.innerHTML = `Student Age: ${this.age} `;
+        studentCollege.innerHTML = `Student College: ${this.college} `;
+
+        document.getElementById('root').appendChild(studentInfo);
+
+        document.getElementById('studentInfo').appendChild(divider);
+        
+        document.getElementById('studentInfo').appendChild(title);
+        document.getElementById('studentInfo').appendChild(studentName);
+        document.getElementById('studentInfo').appendChild(studentAge);
+        document.getElementById('studentInfo').appendChild(studentCollege);
+        document.getElementById('studentInfo').appendChild(divider);
+
+
+      },
+    };
+
+    
+    return student;
+  }
+}
+
+const obj1 = Student.createStudent("first","last",18);
+obj1.printStudentInformation()
+
+const obj2 = Student.createStudent("new","last",23);
+obj2.printStudentInformation()
+
+
+ 
+</script>
+</body>
+</html>

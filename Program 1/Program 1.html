@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Invertory Management System</title>
+</head>
+<center>
+<body>
+<h2>Inventory Management System Using JavaScript class Method</h2>
+<div id="demo1"></div>
+<div id="demo2"></div>
+<div id="demo3"></div>
+<script type="text/javascript">
+class RAM
+{
+    constructor(model,year,company,quantity)
+    {
+        this.model = model;
+        this.year = year;
+        this.company = company;
+        this.quantity = quantity;
+    }
+}
+
+var inv1 = new RAM("KingstonKVM102", 2021, "Kingston",20);
+var inv2 = new RAM("SamsungGT207", 2019,"Samsung",14);
+var inv3 = new RAM("CaricseYT76",2020,"Caricose",12);
+
+document.getElementById("demo1").innerHTML = "Model: " + inv1.model + " " + "Year:" + inv1.year + "Company:" + inv1.company + " " + "Quantity: " + inv1.quantity;
+document.getElementById("demo2").innerHTML = "Model: " + inv2.model + " " + "Year: " + inv2.year + "Companay: " + inv2.company + " " + "Quantity: " + inv2.quantity;
+document.getElementById("demo3").innerHTML = "Model: " + inv3.model + " " + "Year: " + inv3.year + "Companay: " + inv3.company + " " + "Quantity: " + inv3.quantity;
+</script>
+</body>
+</center>
+</html>
