@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+    background-color: rgb(212, 233, 252);
+}
+th, td {
+    padding: 10px;
+}
+section {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    /* align-items: center; */
+    }
+#card {
+    text-align: center;
+}
+input {
+    text-align: center;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: rgb(197, 228, 255);
+    color: black;
+}
+button {
+    border: 1px solid black;
+    padding: 10px 20px;
+    margin: 0px 10px;
+    border-radius: 20px;
+    font-weight: bold;
+    background-color: rgb(154, 209, 253);
+}
+    </style>
+    <title>Mobile Inventroy</title>
+</head>
+<body>
+    <h1 style="text-align: center">Mobile Inventroy</h1>
+    <section>
+        <div id="card">
+            <input type="text" id="name" placeholder="Name of The product">
+            <br>
+            <br>
+            <input type="text" id="country" placeholder="Country of Origin">
+            <br><br>
+            <input type="text" id="stock" placeholder="Stock">
+            <br><br>
+            <button id="add">Add</button>
+            <button id="display">Display</button>
+        </div>
+        </section>
+    <section>
+        <div id="card">
+            <table id="tab" border="1"></table>
+        </div>
+    </section>
+    <script>
+        class Inventory {
+    constructor(name, country, stock) {
+        this.name = name;
+        this.country = country;
+        this.stock = stock;
+    }
+}
+
+const nameInput = document.getElementById('name');
+const countryInput = document.getElementById('country');
+const stockInput = document.getElementById('stock');
+const addButton = document.getElementById('add');
+const displayButton = document.getElementById('display');
+const tabTable = document.getElementById('tab');
+
+const inventoryList = []
+
+addButton.addEventListener('click', () => {
+    inventoryList.push(new Inventory(nameInput.value, countryInput.value, stockInput.value));
+    nameInput.value = '';
+    countryInput.value = '';
+    stockInput.value = '';
+});
+
+displayButton.addEventListener('click', () => {
+    let tab = "<tr><th>Name</th><th>Country</th><th>Stock</th></tr>";
+    inventoryList.forEach((obj) => {
+        tab += "<tr><td>" + obj.name + "</td><td>" + obj.country + "</td><td>" + obj.stock + "</td></tr>";
+    })
+    tabTable.innerHTML = tab;
+});
+    </script>
+</body>
+</html>
